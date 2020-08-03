@@ -14,9 +14,10 @@ public class Transaction {
     public String accountId;
     public String creditId;
 
-    public Transaction(String transactionName,double amount,String accountId){
+    public Transaction(String transactionName, Double amount, LocalDate datetime, String accountId) {
         this.transactionName=transactionName;
         this.amount=amount;
+        this.datetime=datetime;
         this.accountId=accountId;
     }
 }
