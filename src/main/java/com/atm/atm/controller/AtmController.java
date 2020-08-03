@@ -20,4 +20,12 @@ public class AtmController {
                                       @PathVariable("amount") double amount){
         return atmService.deposit(accountId,amount);
     }
+
+    @GetMapping("withdraw/{accountId}/{amount}")
+    public Mono<Account> withdrawByAtm(@PathVariable("accountId") String accountId,
+                                      @PathVariable("amount") double amount){
+        return atmService.withdraw(accountId,amount);
+    }
+
+   
 }
