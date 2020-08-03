@@ -26,6 +26,6 @@ public class AtmController {
                                       @PathVariable("amount") double amount){
         return atmService.withdraw(accountId,amount);
     }
+    
 
-   
 }
