@@ -1,6 +1,6 @@
 package com.atm.atm.adds;
 
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -14,8 +14,9 @@ public class Transaction {
     public String accountId;
     public String creditId;
 
-    public Transaction(String transactionName,double amount){
+    public Transaction(String transactionName,double amount,String accountId){
         this.transactionName=transactionName;
         this.amount=amount;
+        this.accountId=accountId;
     }
 }
