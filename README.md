@@ -23,7 +23,7 @@ mvn install
 docker build . -t config-service
 docker run -p 8090:8090 --name config-service config-service
 ```
-#Operations
+# Operations
 | HTTP Verb  |      `/atm/deposit/{accountId}/{amount}`        |        `atm/withdraw/{accountId}/{amount}`      |       `atm/withdraw/{accountId}/{amount}/{bankId}`           |       `atm/withdraw/{accountId}/{amount}/{bankId}`           |
 | ---------- | :---------------------------------------------: | :---------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | **GET**   |    GET deposit made from ATM in account          |    GET withdraw made from ATM in account        |     GET deposit made from ATM in account to other bank       |    GET withdraw made from ATM in account to other bank       |
