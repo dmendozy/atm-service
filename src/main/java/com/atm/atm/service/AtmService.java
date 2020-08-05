@@ -13,38 +13,38 @@ public class AtmService {
     @Autowired
     WebClient.Builder webClientBuilder;
 
-    public Mono<Account> deposit(String accountId, Double amount){
+    public Mono<Account> deposit(String accountId, Double amount) {
         return webClientBuilder
                 .build()
                 .put()
-                .uri("http://localhost:8083/accounts/atm/deposit/"+accountId+"/"+amount)
+                .uri("http://localhost:8080/accounts/atm/deposit/" + accountId + "/" + amount)
                 .retrieve()
                 .bodyToMono(Account.class);
     }
 
-    public Mono<Account> withdraw(String accountId, Double amount){
-        return webClientBuilder
-                        .build()
-                        .put()
-                        .uri("http://localhost:8083/accounts/atm/withdraw/"+accountId+"/"+amount)
-                        .retrieve()
-                        .bodyToMono(Account.class);
-    }
-
-    public Mono<Account> depositInterBank(String accountId, Double amount, String bankId){
+    public Mono<Account> withdraw(String accountId, Double amount) {
         return webClientBuilder
                 .build()
                 .put()
-                .uri("http://localhost:8083/accounts/bank/atm/deposit/"+accountId+"/"+amount+"/"+bankId)
+                .uri("http://localhost:8080/accounts/atm/withdraw/" + accountId + "/" + amount)
                 .retrieve()
                 .bodyToMono(Account.class);
     }
 
-    public Mono<Account> withdrawInterBank(String accountId, Double amount, String bankId){
+    public Mono<Account> depositInterBank(String accountId, Double amount, String bankId) {
         return webClientBuilder
                 .build()
                 .put()
-                .uri("http://localhost:8083/accounts/bank/atm/withdraw/"+accountId+"/"+amount+"/"+bankId)
+                .uri("http://localhost:8080/accounts/bank/atm/deposit/" + accountId + "/" + amount + "/" + bankId)
+                .retrieve()
+                .bodyToMono(Account.class);
+    }
+
+    public Mono<Account> withdrawInterBank(String accountId, Double amount, String bankId) {
+        return webClientBuilder
+                .build()
+                .put()
+                .uri("http://localhost:8080/accounts/bank/atm/withdraw/" + accountId + "/" + amount + "/" + bankId)
                 .retrieve()
                 .bodyToMono(Account.class);
     }

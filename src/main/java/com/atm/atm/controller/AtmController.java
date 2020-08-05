@@ -17,28 +17,28 @@ public class AtmController {
 
     @GetMapping("deposit/{accountId}/{amount}")
     public Mono<Account> depositByAtm(@PathVariable("accountId") String accountId,
-                                      @PathVariable("amount") double amount){
-        return atmService.deposit(accountId,amount);
+                                      @PathVariable("amount") double amount) {
+        return atmService.deposit(accountId, amount);
     }
 
     @GetMapping("withdraw/{accountId}/{amount}")
     public Mono<Account> withdrawByAtm(@PathVariable("accountId") String accountId,
-                                      @PathVariable("amount") double amount){
-        return atmService.withdraw(accountId,amount);
+                                       @PathVariable("amount") double amount) {
+        return atmService.withdraw(accountId, amount);
     }
 
     @GetMapping("deposit/{accountId}/{amount}/{bankId}")
     public Mono<Account> withdrawByAtmInterBank(@PathVariable("accountId") String accountId,
                                                 @PathVariable("amount") double amount,
-                                                @PathVariable("bankId") String bankId){
-        return atmService.depositInterBank(accountId,amount,bankId);
+                                                @PathVariable("bankId") String bankId) {
+        return atmService.depositInterBank(accountId, amount, bankId);
     }
 
     @GetMapping("withdraw/{accountId}/{amount}/{bankId}")
     public Mono<Account> withdrawByAtmInterbank(@PathVariable("accountId") String accountId,
                                                 @PathVariable("amount") double amount,
-                                                @PathVariable("bankId") String bankId){
-        return atmService.withdrawInterBank(accountId,amount,bankId);
+                                                @PathVariable("bankId") String bankId) {
+        return atmService.withdrawInterBank(accountId, amount, bankId);
     }
 
 }
