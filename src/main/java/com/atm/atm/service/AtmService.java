@@ -31,4 +31,22 @@ public class AtmService {
                         .bodyToMono(Account.class);
     }
 
+    public Mono<Account> depositInterBank(String accountId, Double amount, String bankId){
+        return webClientBuilder
+                .build()
+                .put()
+                .uri("http://localhost:8083/accounts/bank/atm/deposit/"+accountId+"/"+amount+"/"+bankId)
+                .retrieve()
+                .bodyToMono(Account.class);
+    }
+
+    public Mono<Account> withdrawInterBank(String accountId, Double amount, String bankId){
+        return webClientBuilder
+                .build()
+                .put()
+                .uri("http://localhost:8083/accounts/bank/atm/withdraw/"+accountId+"/"+amount+"/"+bankId)
+                .retrieve()
+                .bodyToMono(Account.class);
+    }
+
 }

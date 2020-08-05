@@ -27,5 +27,18 @@ public class AtmController {
         return atmService.withdraw(accountId,amount);
     }
 
+    @GetMapping("deposit/{accountId}/{amount}/{bankId}")
+    public Mono<Account> withdrawByAtmInterBank(@PathVariable("accountId") String accountId,
+                                                @PathVariable("amount") double amount,
+                                                @PathVariable("bankId") String bankId){
+        return atmService.depositInterBank(accountId,amount,bankId);
+    }
+
+    @GetMapping("withdraw/{accountId}/{amount}/{bankId}")
+    public Mono<Account> withdrawByAtmInterbank(@PathVariable("accountId") String accountId,
+                                                @PathVariable("amount") double amount,
+                                                @PathVariable("bankId") String bankId){
+        return atmService.withdrawInterBank(accountId,amount,bankId);
+    }
 
 }
