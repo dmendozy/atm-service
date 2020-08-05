@@ -20,8 +20,8 @@ This project is based on Spring Boot microservices using the reactive stack, rea
 2. Create an image and container for atm-service using the following code:
 ```
 mvn install
-docker build . -t config-service
-docker run -p 8090:8090 --name config-service config-service
+docker build . -t atm-service
+docker run -p 8088:8088 --name atm-service atm-service
 ```
 # Operations
 | HTTP Verb  |      `/atm/deposit/{accountId}/{amount}`        |        `atm/withdraw/{accountId}/{amount}`      |       `atm/withdraw/{accountId}/{amount}/{bankId}`           |       `atm/withdraw/{accountId}/{amount}/{bankId}`           |
