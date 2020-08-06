@@ -17,7 +17,7 @@ public class AtmService {
         return webClientBuilder
                 .build()
                 .put()
-                .uri("http://localhost:8080/accounts/atm/deposit/" + accountId + "/" + amount)
+                .uri("http://account-service/accounts/atm/deposit/" + accountId + "/" + amount)
                 .retrieve()
                 .bodyToMono(Account.class);
     }
@@ -26,7 +26,7 @@ public class AtmService {
         return webClientBuilder
                 .build()
                 .put()
-                .uri("http://localhost:8080/accounts/atm/withdraw/" + accountId + "/" + amount)
+                .uri("http://account-service/accounts/atm/withdraw/" + accountId + "/" + amount)
                 .retrieve()
                 .bodyToMono(Account.class);
     }
@@ -35,7 +35,7 @@ public class AtmService {
         return webClientBuilder
                 .build()
                 .put()
-                .uri("http://localhost:8080/accounts/bank/atm/deposit/" + accountId + "/" + amount + "/" + bankId)
+                .uri("http://account-service/accounts/bank/atm/deposit/" + accountId + "/" + amount + "/" + bankId)
                 .retrieve()
                 .bodyToMono(Account.class);
     }
@@ -44,7 +44,7 @@ public class AtmService {
         return webClientBuilder
                 .build()
                 .put()
-                .uri("http://localhost:8080/accounts/bank/atm/withdraw/" + accountId + "/" + amount + "/" + bankId)
+                .uri("http://account-service/accounts/bank/atm/withdraw/" + accountId + "/" + amount + "/" + bankId)
                 .retrieve()
                 .bodyToMono(Account.class);
     }
